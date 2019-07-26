@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>4.2</version>
-    <date>2019-07-26T22:32:20Z</date>
+    <date>2019-07-26T23:57:24Z</date>
     <groups>
         <group>
             <name>Windows Servers</name>
@@ -299,10 +299,11 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{getWindowsMountPointsToFolders:vfs.fs.size[{#DISKNAME},free].last(0)}&lt;1073741824</expression>
+                            <expression>{getWindowsMountPointsToFolders:vfs.fs.size[{#DISKNAME},pfree].last(0)}&lt;1&#13;
+and {getWindowsMountPointsToFolders:vfs.fs.size[{#DISKNAME},pfree].last(0)}&gt;10 and {getWindowsMountPointsToFolders:vfs.fs.size[{#DISKNAME},free].last(0)}&gt;1</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
-                            <name>Free disk space is less than 1GB on volume {#ZNILFSNAME} ({ITEM.LASTVALUE1} Free Space left)</name>
+                            <name>Free disk space is less than 1% on volume {#DISKNAME} ({ITEM.LASTVALUE3} Free Space left)</name>
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
                             <url/>
@@ -315,10 +316,11 @@
                             <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{getWindowsMountPointsToFolders:vfs.fs.size[{#DISKNAME},free].last(0)}&lt;2147483648 and {getWindowsMountPointsToFolders:vfs.fs.size[{#DISKNAME},free].last(0)}&gt;1073741824</expression>
+                            <expression>{getWindowsMountPointsToFolders:vfs.fs.size[{#DISKNAME},pfree].last(0)}&lt;5&#13;
+and {getWindowsMountPointsToFolders:vfs.fs.size[{#DISKNAME},pfree].last(0)}&gt;10 and {getWindowsMountPointsToFolders:vfs.fs.size[{#DISKNAME},free].last(0)}&gt;1</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
-                            <name>Free disk space is less than 2GB on volume {#ZNILFSNAME} ({ITEM.LASTVALUE1} Free Space left)</name>
+                            <name>Free disk space is less than 5% on volume {#DISKNAME} ({ITEM.LASTVALUE3} Free Space left)</name>
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
                             <url/>
@@ -331,26 +333,10 @@
                             <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{getWindowsMountPointsToFolders:vfs.fs.size[{#DISKNAME},free].last(0)}&lt;5368709120 and {getWindowsMountPointsToFolders:vfs.fs.size[{#DISKNAME},free].last(0)}&gt;2147483648</expression>
+                            <expression>{getWindowsMountPointsToFolders:vfs.fs.size[{#DISKNAME},pfree].last(0)}&lt;10 and {getWindowsMountPointsToFolders:vfs.fs.size[{#DISKNAME},pfree].last(0)}&gt;10 and {getWindowsMountPointsToFolders:vfs.fs.size[{#DISKNAME},free].last(0)}&gt;1</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
-                            <name>Free disk space is less than 5GB on volume {#ZNILFSNAME} ({ITEM.LASTVALUE1} Free Space left)</name>
-                            <correlation_mode>0</correlation_mode>
-                            <correlation_tag/>
-                            <url/>
-                            <status>0</status>
-                            <priority>3</priority>
-                            <description/>
-                            <type>0</type>
-                            <manual_close>0</manual_close>
-                            <dependencies/>
-                            <tags/>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{getWindowsMountPointsToFolders:vfs.fs.size[{#DISKNAME},free].last(0)}&lt;10737418240 and {getWindowsMountPointsToFolders:vfs.fs.size[{#DISKNAME},free].last(0)}&gt;5368709120</expression>
-                            <recovery_mode>0</recovery_mode>
-                            <recovery_expression/>
-                            <name>Free disk space is less than 10GB on volume {#ZNILFSNAME} ({ITEM.LASTVALUE1} Free Space left)</name>
+                            <name>Free disk space is less than 10% on volume {#DISKNAME} ({ITEM.LASTVALUE3} Free Space left)</name>
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
                             <url/>
@@ -366,23 +352,7 @@
                             <expression>{getWindowsMountPointsToFolders:vfs.fs.size[{#DISKNAME},pfree].last(0)}&lt;20 and {getWindowsMountPointsToFolders:vfs.fs.size[{#DISKNAME},pfree].last(0)}&gt;10 and {getWindowsMountPointsToFolders:vfs.fs.size[{#DISKNAME},free].last(0)}&gt;1</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
-                            <name>Free disk space is less than 20% on volume {#ZNILFSNAME} ({ITEM.LASTVALUE3} Free Space left)</name>
-                            <correlation_mode>0</correlation_mode>
-                            <correlation_tag/>
-                            <url/>
-                            <status>1</status>
-                            <priority>1</priority>
-                            <description/>
-                            <type>0</type>
-                            <manual_close>0</manual_close>
-                            <dependencies/>
-                            <tags/>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{getWindowsMountPointsToFolders:vfs.fs.size[{#DISKNAME},free].last(0)}&lt;21474836480 and {getWindowsMountPointsToFolders:vfs.fs.size[{#DISKNAME},free].last(0)}&gt;10737418240</expression>
-                            <recovery_mode>0</recovery_mode>
-                            <recovery_expression/>
-                            <name>Free disk space is less than 20GB on volume {#ZNILFSNAME} ({ITEM.LASTVALUE1} Free Space left)</name>
+                            <name>Free disk space is less than 20% on volume {#DISKNAME} ({ITEM.LASTVALUE3} Free Space left)</name>
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
                             <url/>

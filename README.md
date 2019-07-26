@@ -13,7 +13,8 @@ C:\Program Files\Zabbix Agent\scripts
 ```
 UserParameter=vfs.fs.customfolders.windowsmountpoints.discovery,powershell -File "C:\Program Files\Zabbix Agent\scripts\getNTFSMountPoints.ps1" "$1"
 ```
-* 
+* Import the template to the Zabbix System
+* Asign the Template to the needed hosts, Could take within an a hour to start to show data
 
 ## Description
 
