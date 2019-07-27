@@ -1,6 +1,8 @@
 # Zabbix-Windows-NTFS-MountPoints-Template
 
-This repository contains a Zabbix Template to monitor NTFS mount points to folders and a Powershell script to get those mountpoints
+This repository contains a Zabbix Template to monitor NTFS mount points to folders and a Powershell script to get those mount points information.
+
+The current Zabbix Agent does not support that functionality 
 
 ## Installation
 
@@ -23,18 +25,18 @@ UserParameter=vfs.fs.customfolders.windowsmountpoints.discovery,powershell -File
 * Import the template file *OSWindowsNTFSMountPoints.xml* to the Zabbix System
 ![Import Template](images/importTemplate.png?raw=true "Title")
 
-* Asign the Template to the needed hosts, Could take within an a hour to start to show data
+* Assign the Template to the needed hosts, Could take within an a hour to start to show data
 
 ## Description
 
-* The powershell script gets the non letter mountpoints and generates a JSON output with that information
+* The PowerShell script gets the nonletter mount points and generates a JSON output with that information
 * The Zabbix template uses LLD to parse and run the script and parse the template using Discovery feature
 
 
 ## Items Added
 
 Graphs
-This template creates Graph for the discovered disks
+This template creates a Graph for the discovered disks
 ![Graphs](images/graphTemplate.png?raw=true "Title")
 
 Data
