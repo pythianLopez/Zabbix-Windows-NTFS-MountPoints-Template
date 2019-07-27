@@ -4,6 +4,8 @@ This repository contains a Zabbix Template to monitor NTFS mount points to folde
 
 ## Installation
 
+### Host Installation
+
 * Clone this repository
 * Copy the script getWindowsNTFSMountPoints.ps1 to the path
 ```
@@ -13,7 +15,14 @@ C:\Program Files\Zabbix Agent\scripts
 ```
 UserParameter=vfs.fs.customfolders.windowsmountpoints.discovery,powershell -File "C:\Program Files\Zabbix Agent\scripts\getNTFSMountPoints.ps1" "$1"
 ```
-* Import the template to the Zabbix System
+* Restart the Zabbix agent service
+
+### Zabbix Server Installation
+
+* Go to Configuration/Templates 
+* Import the template file *OSWindowsNTFSMountPoints.xml* to the Zabbix System
+![Import Template](images/importTemplate.png?raw=true "Title")
+
 * Asign the Template to the needed hosts, Could take within an a hour to start to show data
 
 ## Description
@@ -22,3 +31,12 @@ UserParameter=vfs.fs.customfolders.windowsmountpoints.discovery,powershell -File
 * The Zabbix template uses LLD to parse and run the script and parse the template using Discovery feature
 
 
+## Items Added
+
+Graphs
+This template creates Graph for the discovered disks
+![Graphs](images/graphTemplate.png?raw=true "Title")
+
+Data
+This template adds the same data than the original Windows Template 
+![Data](images/data.png?raw=true "Title")
