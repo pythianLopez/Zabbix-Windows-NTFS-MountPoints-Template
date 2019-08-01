@@ -17,6 +17,8 @@ C:\Program Files\Zabbix Agent\scripts
 ```
 UserParameter=vfs.fs.customfolders.windowsmountpoints.discovery,powershell -File "C:\Program Files\Zabbix Agent\scripts\getNTFSMountPoints.ps1" "$1"
 ```
+* Check for the seeting Timeout=30 on the configuration file.
+* Save the changes
 * Restart the Zabbix agent service
 
 ### Zabbix Server Installation
